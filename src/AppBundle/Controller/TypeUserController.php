@@ -62,7 +62,7 @@ class TypeUserController extends FOSRestController
      * Récupère un typeuser identifié par le paramètre 'id'
      *
      * @Rest\View()
-     * @Rest\Get("/typeuser/{id}")
+     * @Rest\Get("/typeuser/{id}", requirements={"id" = "\d+"})
      */
     public function getOneTypeUserAction(Request $request)
     {
@@ -106,7 +106,7 @@ class TypeUserController extends FOSRestController
     /**
      * Modifie une typeuser identifié par le paramètre 'id'
      * @Rest\View()
-     * @Rest\Put("/typeuser/{id}")
+     * @Rest\Put("/typeuser/{id}", requirements={"id" = "\d+"})
      */
     public function putTypeUserAction(Request $request)
     {
@@ -117,7 +117,7 @@ class TypeUserController extends FOSRestController
      * Modifie une typeuser identifié par le paramètre 'id'
      *
      * @Rest\View()
-     * @Rest\Patch("/typeuser/{id}")
+     * @Rest\Patch("/typeuser/{id}", requirements={"id" = "\d+"})
      */
     public function patchTypeUserAction(Request $request)
     {
@@ -157,7 +157,7 @@ class TypeUserController extends FOSRestController
     * Supprime une typeuser identifié par le paramètre 'id'
      *
     * @Rest\View()
-    * @Rest\Delete("/typeuser/{id}")
+    * @Rest\Delete("/typeuser/{id}", requirements={"id" = "\d+"})
     */
     public function deleteTypeUserAction(Request $request)
     {

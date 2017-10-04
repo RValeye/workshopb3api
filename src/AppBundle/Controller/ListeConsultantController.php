@@ -63,7 +63,7 @@ class ListeConsultantController extends FOSRestController
      * Récupère un listeconsultant identifié par le paramètre 'id'
      *
      * @Rest\View(serializedGroups={"ApiListeConsultantGroup"})
-     * @Rest\Get("/listeconsultant/{id}")
+     * @Rest\Get("/listeconsultant/{id}", requirements={"id" = "\d+"})
      */
     public function getOneListeConsultantAction(Request $request)
     {
@@ -107,7 +107,7 @@ class ListeConsultantController extends FOSRestController
     /**
      * Modifie une listeconsultant identifié par le paramètre 'id'
      * @Rest\View(serializedGroups={"ApiListeConsultantGroup"})
-     * @Rest\Put("/listeconsultant/{id}")
+     * @Rest\Put("/listeconsultant/{id}", requirements={"id" = "\d+"})
      */
     public function putListeConsultantAction(Request $request)
     {
@@ -118,7 +118,7 @@ class ListeConsultantController extends FOSRestController
      * Modifie une listeconsultant identifié par le paramètre 'id'
      *
      * @Rest\View(serializedGroups={"ApiListeConsultantGroup"})
-     * @Rest\Patch("/listeconsultant/{id}")
+     * @Rest\Patch("/listeconsultant/{id}", requirements={"id" = "\d+"})
      */
     public function patchListeConsultantAction(Request $request)
     {
@@ -158,7 +158,7 @@ class ListeConsultantController extends FOSRestController
      * Supprime une listeconsultant identifié par le paramètre 'id'
      *
      * @Rest\View(serializedGroups={"ApiListeConsultantGroup"})
-     * @Rest\Delete("/listeconsultant/{id}")
+     * @Rest\Delete("/listeconsultant/{id}", requirements={"id" = "\d+"})
      */
     public function deleteListeConsultantAction(Request $request)
     {

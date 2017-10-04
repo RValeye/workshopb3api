@@ -63,7 +63,7 @@ class CompanyController extends FOSRestController
      * Récupère un company identifié par le paramètre 'id'
      *
      * @Rest\View()
-     * @Rest\Get("/companies/{id}", requirements={"id" = "\d+"}
+     * @Rest\Get("/companies/{id}", requirements={"id" = "\d+"})
      */
     public function getOneCompanyAction(Request $request)
     {
@@ -158,7 +158,7 @@ class CompanyController extends FOSRestController
      * Supprime une company identifié par le paramètre 'id'
      *
      * @Rest\View(serializedGroups={"ApiCompanyGroup"})
-     * @Rest\Delete("/companies/{id}")
+     * @Rest\Delete("/companies/{id}", requirements={"id" = "\d+"})
      */
     public function deleteContactAction(Request $request)
     {
