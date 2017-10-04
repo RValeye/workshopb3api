@@ -3,6 +3,8 @@
 namespace AppBundle\Form;
 
 use AppBundle\Entity\Besoin;
+use AppBundle\Entity\Contact;
+use AppBundle\Entity\User;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -19,10 +21,10 @@ class BesoinType extends AbstractType
             ->add('keySuccess')
             ->add('active')
             ->add('contact', EntityType::class, [
-                'class' => ContactType::class,
+                'class' => Contact::class,
             ])
             ->add('user', EntityType::class, [
-                'class' => EntityType::class
+                'class' => User::class
             ])
             ->add('rate')
             ->add('location')
