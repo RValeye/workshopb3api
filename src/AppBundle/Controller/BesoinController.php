@@ -62,7 +62,7 @@ class BesoinController extends FOSRestController
      * Récupère un besoin identifié par le paramètre 'id'
      *
      * @Rest\View(serializedGroups={"ApiBesoinGroup"})
-     * @Rest\Get("/besoins/{id}", requirements={"id" = "\d+"}
+     * @Rest\Get("/besoins/{id}", requirements={"id" = "\d+"})
      */
     public function getOneBesoinAction(Request $request)
     {
@@ -121,7 +121,7 @@ class BesoinController extends FOSRestController
     /**
      * Modifie une besoin identifié par le paramètre 'id'
      * @Rest\View(serializedGroups={"ApiBesoinGroup"})
-     * @Rest\Put("/besoins/{id}", requirements={"id" = "\d+"}
+     * @Rest\Put("/besoins/{id}", requirements={"id" = "\d+"})
      */
     public function putBesoinAction(Request $request)
     {
@@ -132,7 +132,7 @@ class BesoinController extends FOSRestController
      * Modifie une besoin identifié par le paramètre 'id'
      *
      * @Rest\View(serializedGroups={"ApiBesoinGroup"})
-     * @Rest\Patch("/besoins/{id}", requirements={"id" = "\d+"}
+     * @Rest\Patch("/besoins/{id}", requirements={"id" = "\d+"})
      */
     public function patchBesoinAction(Request $request)
     {
@@ -172,7 +172,7 @@ class BesoinController extends FOSRestController
      * Supprime une besoin identifié par le paramètre 'id'
      *
      * @Rest\View()
-     * @Rest\Delete("/besoins/{id}", requirements={"id" = "\d+"}
+     * @Rest\Delete("/besoins/{id}", requirements={"id" = "\d+"})
      */
     public function deleteBesoinAction(Request $request)
     {

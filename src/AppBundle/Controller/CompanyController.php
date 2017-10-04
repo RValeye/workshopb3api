@@ -107,7 +107,7 @@ class CompanyController extends FOSRestController
     /**
      * Modifie une company identifié par le paramètre 'id'
      * @Rest\View()
-     * @Rest\Put("/companies/{id}", requirements={"id" = "\d+"}
+     * @Rest\Put("/companies/{id}", requirements={"id" = "\d+"})
      */
     public function putCompanyAction(Request $request)
     {
@@ -118,7 +118,7 @@ class CompanyController extends FOSRestController
      * Modifie une company identifié par le paramètre 'id'
      *
      * @Rest\View()
-     * @Rest\Patch("/companies/{id}", requirements={"id" = "\d+"}
+     * @Rest\Patch("/companies/{id}", requirements={"id" = "\d+"})
      */
     public function patchCompanyAction(Request $request)
     {

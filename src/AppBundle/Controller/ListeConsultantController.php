@@ -32,7 +32,7 @@ class ListeConsultantController extends FOSRestController
      */
     public function getListeConsultantAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager('basesociete');
+        $em = $this->getDoctrine()->getManager();
 
         $params = $request->query->all();
 
@@ -48,7 +48,7 @@ class ListeConsultantController extends FOSRestController
      */
     public function getListeConsultantCountAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager('basesociete');
+        $em = $this->getDoctrine()->getManager();
 
         $params = $request->query->all();
 
@@ -67,7 +67,7 @@ class ListeConsultantController extends FOSRestController
      */
     public function getOneListeConsultantAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager('basesociete');
+        $em = $this->getDoctrine()->getManager();
 
         $listeconsultant = $em->getRepository('AppBundle:ListeConsultant')->find($request->get('id'));
         if($listeconsultant == null){
@@ -84,7 +84,7 @@ class ListeConsultantController extends FOSRestController
      */
     public function postListeConsultantAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager('basesociete');
+        $em = $this->getDoctrine()->getManager();
         $listeconsultant = new ListeConsultant();
 
         $form = $this->createForm(ListeConsultantType::class, $listeconsultant);
@@ -128,7 +128,7 @@ class ListeConsultantController extends FOSRestController
     private function updateListeConsultant(Request $request, $clearMissing)
     {
         $response_code = Response::HTTP_OK;
-        $em = $this->getDoctrine()->getManager('basesociete');
+        $em = $this->getDoctrine()->getManager();
         $listeconsultant = $em->getRepository('AppBundle:ListeConsultant')->find($request->get('id'));
         if($listeconsultant == null){
             //$listeconsultant = new ListeConsultant();

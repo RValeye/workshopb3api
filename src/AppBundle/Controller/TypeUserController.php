@@ -31,7 +31,7 @@ class TypeUserController extends FOSRestController
      */
     public function getTypeUserAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager('basesociete');
+        $em = $this->getDoctrine()->getManager();
 
         $params = $request->query->all();
 
@@ -47,7 +47,7 @@ class TypeUserController extends FOSRestController
      */
     public function getTypeUserCountAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager('basesociete');
+        $em = $this->getDoctrine()->getManager();
 
         $params = $request->query->all();
 
@@ -66,7 +66,7 @@ class TypeUserController extends FOSRestController
      */
     public function getOneTypeUserAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager('basesociete');
+        $em = $this->getDoctrine()->getManager();
 
         $typeuser = $em->getRepository('AppBundle:TypeUser')->find($request->get('id'));
         if($typeuser == null){
@@ -83,7 +83,7 @@ class TypeUserController extends FOSRestController
      */
     public function postTypeUserAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager('basesociete');
+        $em = $this->getDoctrine()->getManager();
         $typeuser = new TypeUser();
 
         $form = $this->createForm(TypeUserType::class, $typeuser);
@@ -127,7 +127,7 @@ class TypeUserController extends FOSRestController
     private function updateTypeUser(Request $request, $clearMissing)
     {
         $response_code = Response::HTTP_OK;
-        $em = $this->getDoctrine()->getManager('basesociete');
+        $em = $this->getDoctrine()->getManager();
         $typeuser = $em->getRepository('AppBundle:TypeUser')->find($request->get('id'));
         if($typeuser == null){
             //$typeuser = new TypeUser();
@@ -161,7 +161,7 @@ class TypeUserController extends FOSRestController
     */
     public function deleteTypeUserAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager('basesociete');
+        $em = $this->getDoctrine()->getManager();
         $typeuser = $em->getRepository('AppBundle:TypeUser')->find($request->get('id'));
         if($typeuser == null){
             return $this->view(false, Response::HTTP_NOT_FOUND);
