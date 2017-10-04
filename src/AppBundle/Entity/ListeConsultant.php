@@ -18,6 +18,8 @@ class ListeConsultant
      * @ORM\Column(name="liste_consultant_id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+     *
+     * @Serializer\Groups({"ApiListeConsultantGroup"})
      */
     private $id;
 
@@ -28,6 +30,8 @@ class ListeConsultant
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="besoin_besoin_id", referencedColumnName="besoin_id")
      * })
+     *
+     * @Serializer\Groups({"ApiListeConsultantGroup"})
      */
     private $besoin;
 
@@ -38,6 +42,8 @@ class ListeConsultant
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="user_user_id", referencedColumnName="user_id")
      * })
+     *
+     * @Serializer\Groups({"ApiListeConsultantGroup"})
      */
     private $user;
 

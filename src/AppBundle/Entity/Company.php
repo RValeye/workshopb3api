@@ -18,6 +18,8 @@ class Company
      * @ORM\Column(name="company_id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+     *
+     * @Serializer\Groups({"ApiCompanyGroup", "ApiContactGroup"})
      */
     private $id;
 
@@ -25,6 +27,8 @@ class Company
      * @var string
      *
      * @ORM\Column(name="company_label", type="string", length=255, nullable=false)
+     *
+     * @Serializer\Groups({"ApiCompanyGroup", "ApiContactGroup"})
      */
     private $label;
 

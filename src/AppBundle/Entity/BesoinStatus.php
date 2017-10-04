@@ -18,6 +18,8 @@ class BesoinStatus
      * @ORM\Column(name="besoin_status_id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+     *
+     * @Serializer\Groups({"ApiBesoinStatusGroup"})
      */
     private $id;
 
@@ -25,6 +27,8 @@ class BesoinStatus
      * @var string
      *
      * @ORM\Column(name="besoin_status_label", type="string", length=255, nullable=false)
+     *
+     * @Serializer\Groups({"ApiBesoinStatusGroup"})
      */
     private $label;
 

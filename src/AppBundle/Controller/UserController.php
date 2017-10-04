@@ -155,10 +155,10 @@ class UserController extends FOSRestController
     }
 
     /**
-     * @Rest\Get("/users/{id}/refresh-apikey", requirements={"id" = "\d+"})
+     * @Rest\Patch("/users/{id}/refresh-apikey", requirements={"id" = "\d+"})
      * @Rest\View(serializerGroups={"ApiUserGroup"})
      */
-    public function getUpdateApikeyAction(Request $request)
+    public function patchUpdateApikeyAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 

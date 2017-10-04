@@ -18,6 +18,8 @@ class BesoinStatusModified
      * @ORM\Column(name="status_modified_id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+     *
+     * @Serializer\Groups({"ApiBesoinStatusModifiedGroup"})
      */
     private $id;
 
@@ -25,6 +27,8 @@ class BesoinStatusModified
      * @var \DateTime
      *
      * @ORM\Column(name="status_modified_date", type="datetime", nullable=false)
+     *
+     * @Serializer\Groups({"ApiBesoinStatusModifiedGroup"})
      */
     private $date;
 
@@ -35,6 +39,8 @@ class BesoinStatusModified
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="besoin_besoin_id", referencedColumnName="besoin_id")
      * })
+     *
+     * @Serializer\Groups({"ApiBesoinStatusModifiedGroup"})
      */
     private $besoin;
 
@@ -45,6 +51,8 @@ class BesoinStatusModified
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="besoin_status_besoin_status_id", referencedColumnName="besoin_status_id")
      * })
+     *
+     * @Serializer\Groups({"ApiBesoinStatusModifiedGroup"})
      */
     private $besoinStatus;
 
@@ -55,6 +63,8 @@ class BesoinStatusModified
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="user_user_id", referencedColumnName="user_id")
      * })
+     *
+     * @Serializer\Groups({"ApiBesoinStatusModifiedGroup"})
      */
     private $user;
 

@@ -18,6 +18,8 @@ class BesoinModification
      * @ORM\Column(name="besoin_modification_id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+     *
+     * @Serializer\Groups({"ApiBesoinModificationGroup"})
      */
     private $id;
 
@@ -25,6 +27,8 @@ class BesoinModification
      * @var \DateTime
      *
      * @ORM\Column(name="besoin_modification_date", type="datetime", nullable=false)
+     *
+     * @Serializer\Groups({"ApiBesoinModificationGroup"})
      */
     private $date;
 
@@ -35,6 +39,8 @@ class BesoinModification
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="besoin_besoin_id", referencedColumnName="besoin_id")
      * })
+     *
+     * @Serializer\Groups({"ApiBesoinModificationGroup"})
      */
     private $besoin;
 
@@ -45,6 +51,8 @@ class BesoinModification
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="user_user_id", referencedColumnName="user_id")
      * })
+     *
+     * @Serializer\Groups({"ApiBesoinModificationGroup"})
      */
     private $user;
 

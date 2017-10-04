@@ -22,7 +22,7 @@ class User implements AdvancedUserInterface
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      *
-     * @Groups({"ApiUserGroup"})
+     * @Groups({"ApiUserGroup", "ApiListeConsultantGroup"})
      */
     private $id;
 
@@ -31,7 +31,7 @@ class User implements AdvancedUserInterface
      *
      * @ORM\Column(name="user_name", type="string", length=255, nullable=false)
      *
-     * @Groups({"ApiUserGroup"})
+     * @Groups({"ApiUserGroup", "ApiListeConsultantGroup"})
      */
     private $name;
 
@@ -40,7 +40,7 @@ class User implements AdvancedUserInterface
      *
      * @ORM\Column(name="user_email", type="string", length=255, nullable=false)
      *
-     * @Groups({"ApiUserGroup"})
+     * @Groups({"ApiUserGroup", "ApiListeConsultantGroup"})
      */
     private $email;
 
@@ -49,7 +49,7 @@ class User implements AdvancedUserInterface
      *
      * @ORM\Column(name="user_api_key", type="string", length=255, nullable=true)
      *
-     * @Groups({"ApiUserGroup"})
+     * @Groups({"ApiUserGroup", "ApiListeConsultantGroup"})
      */
     private $apikey;
 

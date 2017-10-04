@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation as Serializer;
 
 /**
  * Besoin
@@ -18,6 +19,8 @@ class Besoin
      * @ORM\Column(name="besoin_id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+     *
+     * @Serializer\Groups({"ApiBesoinGroup", "ApiListeConsultantGroup"})
      */
     private $id;
 
@@ -25,6 +28,8 @@ class Besoin
      * @var string
      *
      * @ORM\Column(name="besoin_title", type="string", length=255, nullable=false)
+     *
+     * @Serializer\Groups({"ApiBesoinGroup"})
      */
     private $title;
 
@@ -32,20 +37,26 @@ class Besoin
      * @var \DateTime
      *
      * @ORM\Column(name="besoin_date_create", type="datetime", nullable=false)
+     *
+     * @Serializer\Groups({"ApiBesoinGroup"})
      */
     private $dateCreate;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="besoin_date_fin", type="datetime", nullable=true)
+     * @ORM\Column(name="besoin_start_at_latest", type="datetime", nullable=true)
+     *
+     * @Serializer\Groups({"ApiBesoinGroup"})
      */
-    private $dateFin;
+    private $startAtLatest;
 
     /**
      * @var string
      *
      * @ORM\Column(name="besoin_description", type="text", length=65535, nullable=false)
+     *
+     * @Serializer\Groups({"ApiBesoinGroup"})
      */
     private $description;
 
@@ -53,13 +64,17 @@ class Besoin
      * @var string
      *
      * @ORM\Column(name="besoin_location", type="string", length=255, nullable=false)
+     *
+     * @Serializer\Groups({"ApiBesoinGroup"})
      */
     private $location;
 
     /**
-     * @var string
+     * @var float
      *
      * @ORM\Column(name="besoin_rate", type="decimal", precision=14, scale=2, nullable=false)
+     *
+     * @Serializer\Groups({"ApiBesoinGroup"})
      */
     private $rate;
 
@@ -67,6 +82,8 @@ class Besoin
      * @var boolean
      *
      * @ORM\Column(name="besoin_active", type="boolean", nullable=false)
+     *
+     * @Serializer\Groups({"ApiBesoinGroup"})
      */
     private $active;
 
@@ -74,6 +91,8 @@ class Besoin
      * @var string
      *
      * @ORM\Column(name="besoin_fiche_url", type="text", length=65535, nullable=false)
+     *
+     * @Serializer\Groups({"ApiBesoinGroup"})
      */
     private $ficheUrl;
 
@@ -97,7 +116,37 @@ class Besoin
      */
     private $user;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="besoin_desc_url", type="text", nullable=false)
+     *
+     * @Serializer\Groups({"ApiBesoinGroup"})
+     */
+    private $descUrl;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="besoin_key_success", type="string", length=255)
+     *
+     * @Serializer\Groups({"ApiBesoinGroup"})
+     */
+    private $keySuccess;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="besoin_duration", type="decimal", precision=8, scale=2, nullable=false)
+     */
+    private $duration;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="besoin_frequency", type="decimal", precision=8, scale=2, nullable=false)
+     */
+    private $frequency;
 
     /**
      * Get id
@@ -158,27 +207,27 @@ class Besoin
     }
 
     /**
-     * Set dateFin
+     * Set startAtLatest
      *
-     * @param \DateTime $dateFin
+     * @param \DateTime $startAtLatest
      *
      * @return Besoin
      */
-    public function setDateFin($dateFin)
+    public function setStartAtLatest($startAtLatest)
     {
-        $this->dateFin = $dateFin;
+        $this->startAtLatest = $startAtLatest;
 
         return $this;
     }
 
     /**
-     * Get dateFin
+     * Get startAtLatest
      *
      * @return \DateTime
      */
-    public function getDateFin()
+    public function getStartAtLatest()
     {
-        return $this->dateFin;
+        return $this->startAtLatest;
     }
 
     /**
@@ -347,5 +396,77 @@ class Besoin
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescUrl()
+    {
+        return $this->descUrl;
+    }
+
+    /**
+     * @param string $descUrl
+     * @return Besoin
+     */
+    public function setDescUrl($descUrl)
+    {
+        $this->descUrl = $descUrl;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getKeySuccess()
+    {
+        return $this->keySuccess;
+    }
+
+    /**
+     * @param string $keySuccess
+     * @return Besoin
+     */
+    public function setKeySuccess($keySuccess)
+    {
+        $this->keySuccess = $keySuccess;
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getDuration()
+    {
+        return $this->duration;
+    }
+
+    /**
+     * @param float $duration
+     * @return Besoin
+     */
+    public function setDuration($duration)
+    {
+        $this->duration = $duration;
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getFrequency()
+    {
+        return $this->frequency;
+    }
+
+    /**
+     * @param float $frequency
+     * @return Besoin
+     */
+    public function setFrequency($frequency)
+    {
+        $this->frequency = $frequency;
+        return $this;
     }
 }
