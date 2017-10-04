@@ -1,24 +1,40 @@
 # To get started with security, check out the documentation:
 # https://symfony.com/doc/current/security.html
 security:
+    hide_user_not_found: false
 
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
-    providers:
-        in_memory:
-            memory: ~
+    encoders:
+        AppBundle\Entity\User: plaintext
 
+    providers:
+        webservice:
+            id: api_provider.webservice_user_provider
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-        main:
-            anonymous: ~
-            # activate different ways to authenticate
+        login:
+            pattern:  ^/api/login
+            stateless: true
+            anonymous: true
+            form_login:
+                username_parameter:       username
+                password_parameter:       password
+                check_path:               /api/login_check
+                success_handler:          api_handler.authentication_success
+                failure_handler:          api_handler.authentication_failure
+                require_previous_session: false
 
-            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
-            #http_basic: ~
+        api:
+            pattern:   ^/api
+            stateless: true
+            guard:
+                authenticators:
+                    - api_authenticator.api_key
 
-            # https://symfony.com/doc/current/security/form_login_setup.html
-            #form_login: ~
+    access_control:
+        - { path: ^/api/login,              roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api,                    roles: IS_AUTHENTICATED_FULLY }

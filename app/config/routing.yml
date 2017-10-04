@@ -1,3 +1,10 @@
-app:
+api:
     resource: '@AppBundle/Controller/'
-    type: annotation
+    type: rest
+    prefix: /api
+
+api_login_check:
+    path: /api/login_check
+
+_security_logout:
+    path: /api/logout
