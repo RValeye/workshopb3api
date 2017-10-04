@@ -30,7 +30,7 @@ class ContactController extends FOSRestController
      * Récupère la liste des contact sur un interval donné selon les paramètres passés
      *
      * @Rest\View()
-     * @Rest\Get("/contact/{start}/{nb}", requirements={"start" = "\d+", "nb" = "\d+"})
+     * @Rest\Get("/contacts/{start}/{nb}", requirements={"start" = "\d+", "nb" = "\d+"})
      */
     public function getContactAction(Request $request)
     {
@@ -46,7 +46,7 @@ class ContactController extends FOSRestController
     /**
      * Récupère le nombre de contact sur un interval donné selon les paramètres passés
      * @Rest\View()
-     * @Rest\Get("/contact/count")
+     * @Rest\Get("/contacts/count")
      */
     public function getContactCountAction(Request $request)
     {
@@ -65,7 +65,7 @@ class ContactController extends FOSRestController
      * Récupère un contact identifié par le paramètre 'id'
      *
      * @Rest\View()
-     * @Rest\Get("/contact/{id}", requirements={"id" = "\d+"})
+     * @Rest\Get("/contacts/{id}", requirements={"id" = "\d+"})
      */
     public function getOneContactAction(Request $request)
     {
@@ -95,7 +95,7 @@ class ContactController extends FOSRestController
      * Crée une contact
      *
      * @Rest\View()
-     * @Rest\Post("/contact")
+     * @Rest\Post("/contacts")
      */
     public function postContactAction(Request $request)
     {
@@ -122,7 +122,7 @@ class ContactController extends FOSRestController
     /**
      * Modifie une contact identifié par le paramètre 'id'
      * @Rest\View()
-     * @Rest\Put("/contact/{id}", requirements={"id" = "\d+"})
+     * @Rest\Put("/contacts/{id}", requirements={"id" = "\d+"})
      */
     public function putContactAction(Request $request)
     {
@@ -133,7 +133,7 @@ class ContactController extends FOSRestController
      * Modifie une contact identifié par le paramètre 'id'
      *
      * @Rest\View()
-     * @Rest\Patch("/contact/{id}", requirements={"id" = "\d+"})
+     * @Rest\Patch("/contacts/{id}", requirements={"id" = "\d+"})
      */
     public function patchContactAction(Request $request)
     {
@@ -173,7 +173,7 @@ class ContactController extends FOSRestController
      * Supprime une contact identifié par le paramètre 'id'
      *
      * @Rest\View(serializerGroups={"ApiContactGroup"})
-     * @Rest\Delete("/contact/{id}", requirements={"id" = "\d+"})
+     * @Rest\Delete("/contacts/{id}", requirements={"id" = "\d+"})
      */
     public function deleteContactAction(Request $request)
     {

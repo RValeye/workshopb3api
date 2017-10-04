@@ -80,7 +80,7 @@ class CompanyController extends FOSRestController
      * @Rest\Get("/companies")
      * @Rest\View(serializerGroups={"ApiCompanyGroup"})
      */
-    public function getAllBesoinAction(Request $request)
+    public function getAllCompanyAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
