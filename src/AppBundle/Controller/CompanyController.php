@@ -77,6 +77,19 @@ class CompanyController extends FOSRestController
     }
 
     /**
+     * @Rest\Get("/companies")
+     * @Rest\View(serializerGroups={"ApiCompanyGroup"})
+     */
+    public function getAllBesoinAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $companies = $em->getRepository('AppBundle:Company')->findAll();
+
+        return $companies;
+    }
+
+    /**
      * Crée une company
      *
      * @Rest\View()

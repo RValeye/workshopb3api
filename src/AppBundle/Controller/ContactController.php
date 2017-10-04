@@ -79,6 +79,19 @@ class ContactController extends FOSRestController
     }
 
     /**
+     * @Rest\Get("/contacts")
+     * @Rest\View(serializerGroups={"ApiContactGroup"})
+     */
+    public function getAllContactAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $contacts = $em->getRepository('AppBundle:Contact')->findAll();
+
+        return $contacts;
+    }
+
+    /**
      * Crée une contact
      *
      * @Rest\View()

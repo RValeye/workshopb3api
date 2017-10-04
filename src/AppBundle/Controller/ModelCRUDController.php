@@ -27,7 +27,7 @@ namespace AppBundle\Controller;
 //     * Récupère la liste des nomentity sur un interval donné selon les paramètres passés
 //     *
 //     * @Rest\View(serializerGroups={"ApiNomEntityGroup"})
-//     * @Rest\Get("/nomentity/{start}/{nb}", requirements={"start" = "\d+", "nb" = "\d+"})
+//     * @Rest\Get("/nomentitys/{start}/{nb}", requirements={"start" = "\d+", "nb" = "\d+"})
 //     */
 //    public function getNomEntityAction(Request $request)
 //    {
@@ -43,7 +43,7 @@ namespace AppBundle\Controller;
 //    /**
 //     * Récupère le nombre de nomentity sur un interval donné selon les paramètres passés
 //     * @Rest\View(serializerGroups={"ApiNomEntityGroup"})
-//     * @Rest\Get("/nomentity/count")
+//     * @Rest\Get("/nomentitys/count")
 //     */
 //    public function getNomEntityCountAction(Request $request)
 //    {
@@ -62,7 +62,7 @@ namespace AppBundle\Controller;
 //     * Récupère un nomentity identifié par le paramètre 'indexofentity'
 //     *
 //     * @Rest\View(serializerGroups={"ApiNomEntityGroup"})
-//     * @Rest\Get("/nomentity/{id}", requirements={"id" = "\d+"}
+//     * @Rest\Get("/nomentitys/{id}", requirements={"id" = "\d+"}
 //     */
 //    public function getOneNomEntityAction(Request $request)
 //    {
@@ -74,12 +74,24 @@ namespace AppBundle\Controller;
 //        }
 //        return $this->view($nomentity, Response::HTTP_OK);
 //    }
+//    /**
+//     * @Rest\Get("/nomentitys")
+//     * @Rest\View(serializerGroups={"ApiNomEntityGroup"})
+//     */
+//    public function getAllNomEntityAction(Request $request)
+//    {
+//        $em = $this->getDoctrine()->getManager();
+//
+//        $nomentitys = $em->getRepository('AppBundle:NomEntity')->findAll();
+//
+//        return $nomentitys;
+//    }
 //
 //    /**
 //     * Crée une nomentity
 //     *
 //     * @Rest\View(serializerGroups={"ApiNomEntityGroup"})
-//     * @Rest\Post("/nomentity")
+//     * @Rest\Post("/nomentitys")
 //     */
 //    public function postNomEntityAction(Request $request)
 //    {
@@ -106,7 +118,7 @@ namespace AppBundle\Controller;
 //    /**
 //     * Modifie une nomentity identifié par le paramètre 'indexofentity'
 //     * @Rest\View(serializerGroups={"ApiNomEntityGroup"})
-//     * @Rest\Put("/nomentity/{id}", requirements={"id" = "\d+"}
+//     * @Rest\Put("/nomentitys/{id}", requirements={"id" = "\d+"}
 //     */
 //    public function putNomEntityAction(Request $request)
 //    {
@@ -117,7 +129,7 @@ namespace AppBundle\Controller;
 //     * Modifie une nomentity identifié par le paramètre 'indexofentity'
 //     *
 //     * @Rest\View(serializerGroups={"ApiNomEntityGroup"})
-//     * @Rest\Patch("/nomentity/{id}", requirements={"id" = "\d+"}
+//     * @Rest\Patch("/nomentitys/{id}", requirements={"id" = "\d+"}
 //     */
 //    public function patchNomEntityAction(Request $request)
 //    {
@@ -157,7 +169,7 @@ namespace AppBundle\Controller;
 //     * Supprime une nomentity identifié par le paramètre 'indexofentity'
 //     *
 //     * @Rest\View()
-//     * @Rest\Delete("/nomentity/{id}", requirements={"id" = "\d+"}
+//     * @Rest\Delete("/nomentitys/{id}", requirements={"id" = "\d+"}
 //     */
 //    public function deleteNomEntityAction(Request $request)
 //    {

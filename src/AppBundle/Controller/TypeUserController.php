@@ -27,7 +27,7 @@ class TypeUserController extends FOSRestController
      * Récupère la liste des typeuser sur un interval donné selon les paramètres passés
      *
      * @Rest\View()
-     * @Rest\Get("/typeuser/{start}/{nb}", requirements={"start" = "\d+", "nb" = "\d+"})
+     * @Rest\Get("/typeusers/{start}/{nb}", requirements={"start" = "\d+", "nb" = "\d+"})
      */
     public function getTypeUserAction(Request $request)
     {
@@ -43,7 +43,7 @@ class TypeUserController extends FOSRestController
     /**
      * Récupère le nombre de typeuser sur un interval donné selon les paramètres passés
      * @Rest\View()
-     * @Rest\Get("/typeuser/count")
+     * @Rest\Get("/typeusers/count")
      */
     public function getTypeUserCountAction(Request $request)
     {
@@ -62,7 +62,7 @@ class TypeUserController extends FOSRestController
      * Récupère un typeuser identifié par le paramètre 'id'
      *
      * @Rest\View()
-     * @Rest\Get("/typeuser/{id}", requirements={"id" = "\d+"})
+     * @Rest\Get("/typeusers/{id}", requirements={"id" = "\d+"})
      */
     public function getOneTypeUserAction(Request $request)
     {
@@ -76,10 +76,23 @@ class TypeUserController extends FOSRestController
     }
 
     /**
+     * @Rest\Get("/typeusers")
+     * @Rest\View(serializerGroups={"ApiTypeUserGroup"})
+     */
+    public function getAllTypeUserAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $types = $em->getRepository('AppBundle:TypeUser')->findAll();
+
+        return $types;
+    }
+    
+    /**
      * Crée une typeuser
      *
      * @Rest\View()
-     * @Rest\Post("/typeuser")
+     * @Rest\Post("/typeusers")
      */
     public function postTypeUserAction(Request $request)
     {
@@ -106,7 +119,7 @@ class TypeUserController extends FOSRestController
     /**
      * Modifie une typeuser identifié par le paramètre 'id'
      * @Rest\View()
-     * @Rest\Put("/typeuser/{id}", requirements={"id" = "\d+"})
+     * @Rest\Put("/typeusers/{id}", requirements={"id" = "\d+"})
      */
     public function putTypeUserAction(Request $request)
     {
@@ -117,7 +130,7 @@ class TypeUserController extends FOSRestController
      * Modifie une typeuser identifié par le paramètre 'id'
      *
      * @Rest\View()
-     * @Rest\Patch("/typeuser/{id}", requirements={"id" = "\d+"})
+     * @Rest\Patch("/typeusers/{id}", requirements={"id" = "\d+"})
      */
     public function patchTypeUserAction(Request $request)
     {
@@ -157,7 +170,7 @@ class TypeUserController extends FOSRestController
     * Supprime une typeuser identifié par le paramètre 'id'
      *
     * @Rest\View()
-    * @Rest\Delete("/typeuser/{id}", requirements={"id" = "\d+"})
+    * @Rest\Delete("/typeusers/{id}", requirements={"id" = "\d+"})
     */
     public function deleteTypeUserAction(Request $request)
     {

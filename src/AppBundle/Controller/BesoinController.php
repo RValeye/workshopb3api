@@ -76,6 +76,19 @@ class BesoinController extends FOSRestController
     }
 
     /**
+     * @Rest\Get("/besoins")
+     * @Rest\View(serializerGroups={"ApiBesoinGroup"})
+     */
+    public function getAllBesoinAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $users = $em->getRepository('AppBundle:Besoin')->findAll();
+
+        return $users;
+    }
+
+    /**
      * Crée une besoin
      *
      * @Rest\View(serializerGroups={"ApiBesoinGroup"})
