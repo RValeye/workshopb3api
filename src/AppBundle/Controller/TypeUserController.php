@@ -95,10 +95,10 @@ class TypeUserController extends FOSRestController
                 $em->persist($typeuser);
                 $em->flush();
             }else{
-                return $this->view($form->getErrors(), Response::HTTP_BAD_REQUEST);
+                return $this->view($form->getErrors(), Response::HTTP_INTERNAL_SERVER_ERROR);
             }
-        }catch(DBALException $e){
-            return $this->view($e->getMessage(), Response::HTTP_BAD_REQUEST);
+        }catch(\Exception $e){
+            return $this->view($e->getMessage(), Response::HTTP_INTERNAL_SERVER_ERROR);
         }
         return $this->view($typeuser, Response::HTTP_CREATED);
     }
@@ -144,10 +144,10 @@ class TypeUserController extends FOSRestController
                 $em->persist($typeuser);
                 $em->flush();
             }else{
-                return $this->view($form->getErrors(), Response::HTTP_BAD_REQUEST);
+                return $this->view($form->getErrors(), Response::HTTP_INTERNAL_SERVER_ERROR);
             }
-        }catch(DBALException $e){
-            return $this->view($e->getMessage(), Response::HTTP_BAD_REQUEST);
+        }catch(\Exception $e){
+            return $this->view($e->getMessage(), Response::HTTP_INTERNAL_SERVER_ERROR);
         }
 
         return $this->view($typeuser, $response_code);

@@ -30,11 +30,11 @@ class BesoinType extends AbstractType
             ->add('location')
             ->add('dateCreate', DateTimeType::class, [
                 'widget' => 'single_text',
-                'data' => new \DateTime()
+                'empty_data' => date_format(new \DateTime(), 'Y-m-d H:i:s')
             ])
             ->add('startAtLatest', DateTimeType::class, [
                 'widget' => 'single_text',
-                'data' => new \DateTime()
+                'empty_data' =>  date_format(new \DateTime(), 'Y-m-d H:i:s')
             ])
             ->add('duration')
             ->add('frequency')

@@ -21,7 +21,7 @@ class BesoinModificationType extends AbstractType
             'class' => Besoin::class
         ])->add('date', DateTimeType::class, [
             'widget' => 'single_text',
-            'data' => new \DateTime()
+            'empty_data' => date_format(new \DateTime(), 'Y-m-d H:i:s')
         ]);
     }
 

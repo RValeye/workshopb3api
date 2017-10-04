@@ -22,7 +22,7 @@ class BesoinStatusModifiedType extends AbstractType
             'class' => User::class
         ])->add('date', DateTimeType::class, [
             'widget' => 'single_text',
-            'data' => new \DateTime()
+            'empty_data' => date_format(new \DateTime(), 'Y-m-d H:i:s')
         ])->add('besoinStatus', EntityType::class, [
             'class' => BesoinStatus::class
         ]);

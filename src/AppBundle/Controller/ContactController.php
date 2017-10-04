@@ -98,10 +98,10 @@ class ContactController extends FOSRestController
                 $em->persist($contact);
                 $em->flush();
             }else{
-                return $this->view($form->getErrors(), Response::HTTP_BAD_REQUEST);
+                return $this->view($form->getErrors(), Response::HTTP_INTERNAL_SERVER_ERROR);
             }
-        }catch(DBALException $e){
-            return $this->view($e->getMessage(), Response::HTTP_BAD_REQUEST);
+        }catch(\Exception $e){
+            return $this->view($e->getMessage(), Response::HTTP_INTERNAL_SERVER_ERROR);
         }
         return $this->view($contact, Response::HTTP_CREATED);
     }
@@ -147,10 +147,10 @@ class ContactController extends FOSRestController
                 $em->persist($contact);
                 $em->flush();
             }else{
-                return $this->view($form->getErrors(), Response::HTTP_BAD_REQUEST);
+                return $this->view($form->getErrors(), Response::HTTP_INTERNAL_SERVER_ERROR);
             }
-        }catch(DBALException $e){
-            return $this->view($e->getMessage(), Response::HTTP_BAD_REQUEST);
+        }catch(\Exception $e){
+            return $this->view($e->getMessage(), Response::HTTP_INTERNAL_SERVER_ERROR);
         }
 
         return $this->view($contact, $response_code);

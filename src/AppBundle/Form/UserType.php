@@ -2,6 +2,7 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Entity\TypeUser;
 use AppBundle\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -12,8 +13,12 @@ class UserType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('email')->add('apikey')->add('typeUser', EntityType::class, [
-            'class' => 'AppBundle\Entity\TypeUser'
+        $builder
+            ->add('name')
+            ->add('email')
+            ->add('apikey')
+            ->add('typeUser', EntityType::class, [
+            'class' => TypeUser::class
         ]);
     }
 
