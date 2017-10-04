@@ -159,7 +159,7 @@ class ContactController extends FOSRestController
     /**
      * Supprime une contact identifié par le paramètre 'id'
      *
-     * @Rest\View(serializedGroups={"ApiContactGroup"})
+     * @Rest\View(serializerGroups={"ApiContactGroup"})
      * @Rest\Delete("/contact/{id}", requirements={"id" = "\d+"})
      */
     public function deleteContactAction(Request $request)

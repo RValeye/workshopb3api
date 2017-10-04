@@ -157,7 +157,7 @@ class CompanyController extends FOSRestController
     /**
      * Supprime une company identifié par le paramètre 'id'
      *
-     * @Rest\View(serializedGroups={"ApiCompanyGroup"})
+     * @Rest\View(serializerGroups={"ApiCompanyGroup"})
      * @Rest\Delete("/companies/{id}", requirements={"id" = "\d+"})
      */
     public function deleteContactAction(Request $request)

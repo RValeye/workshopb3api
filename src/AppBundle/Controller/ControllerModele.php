@@ -26,7 +26,7 @@ namespace AppBundle\Controller;
 //    /**
 //     * Récupère la liste des nomentity sur un interval donné selon les paramètres passés
 //     *
-//     * @Rest\View(serializedGroups={"ApiNomEntityGroup"})
+//     * @Rest\View(serializerGroups={"ApiNomEntityGroup"})
 //     * @Rest\Get("/nomentity/{start}/{nb}", requirements={"start" = "\d+", "nb" = "\d+"})
 //     */
 //    public function getNomEntityAction(Request $request)
@@ -42,7 +42,7 @@ namespace AppBundle\Controller;
 //
 //    /**
 //     * Récupère le nombre de nomentity sur un interval donné selon les paramètres passés
-//     * @Rest\View(serializedGroups={"ApiNomEntityGroup"})
+//     * @Rest\View(serializerGroups={"ApiNomEntityGroup"})
 //     * @Rest\Get("/nomentity/count")
 //     */
 //    public function getNomEntityCountAction(Request $request)
@@ -61,7 +61,7 @@ namespace AppBundle\Controller;
 //    /**
 //     * Récupère un nomentity identifié par le paramètre 'indexofentity'
 //     *
-//     * @Rest\View(serializedGroups={"ApiNomEntityGroup"})
+//     * @Rest\View(serializerGroups={"ApiNomEntityGroup"})
 //     * @Rest\Get("/nomentity/{id}", requirements={"id" = "\d+"}
 //     */
 //    public function getOneNomEntityAction(Request $request)
@@ -78,7 +78,7 @@ namespace AppBundle\Controller;
 //    /**
 //     * Crée une nomentity
 //     *
-//     * @Rest\View(serializedGroups={"ApiNomEntityGroup"})
+//     * @Rest\View(serializerGroups={"ApiNomEntityGroup"})
 //     * @Rest\Post("/nomentity")
 //     */
 //    public function postNomEntityAction(Request $request)
@@ -105,7 +105,7 @@ namespace AppBundle\Controller;
 //
 //    /**
 //     * Modifie une nomentity identifié par le paramètre 'indexofentity'
-//     * @Rest\View(serializedGroups={"ApiNomEntityGroup"})
+//     * @Rest\View(serializerGroups={"ApiNomEntityGroup"})
 //     * @Rest\Put("/nomentity/{id}", requirements={"id" = "\d+"}
 //     */
 //    public function putNomEntityAction(Request $request)
@@ -116,7 +116,7 @@ namespace AppBundle\Controller;
 //    /**
 //     * Modifie une nomentity identifié par le paramètre 'indexofentity'
 //     *
-//     * @Rest\View(serializedGroups={"ApiNomEntityGroup"})
+//     * @Rest\View(serializerGroups={"ApiNomEntityGroup"})
 //     * @Rest\Patch("/nomentity/{id}", requirements={"id" = "\d+"}
 //     */
 //    public function patchNomEntityAction(Request $request)

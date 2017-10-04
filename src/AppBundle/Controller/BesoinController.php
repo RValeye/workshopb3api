@@ -26,7 +26,7 @@ class BesoinController extends FOSRestController
     /**
      * Récupère la liste des besoin sur un interval donné selon les paramètres passés
      *
-     * @Rest\View(serializedGroups={"ApiBesoinGroup"})
+     * @Rest\View(serializerGroups={"ApiBesoinGroup"})
      * @Rest\Get("/besoins/{start}/{nb}", requirements={"start" = "\d+", "nb" = "\d+"})
      */
     public function getBesoinAction(Request $request)
@@ -42,7 +42,7 @@ class BesoinController extends FOSRestController
 
     /**
      * Récupère le nombre de besoin sur un interval donné selon les paramètres passés
-     * @Rest\View(serializedGroups={"ApiBesoinGroup"})
+     * @Rest\View(serializerGroups={"ApiBesoinGroup"})
      * @Rest\Get("/besoins/count")
      */
     public function getBesoinCountAction(Request $request)
@@ -61,7 +61,7 @@ class BesoinController extends FOSRestController
     /**
      * Récupère un besoin identifié par le paramètre 'id'
      *
-     * @Rest\View(serializedGroups={"ApiBesoinGroup"})
+     * @Rest\View(serializerGroups={"ApiBesoinGroup"})
      * @Rest\Get("/besoins/{id}", requirements={"id" = "\d+"})
      */
     public function getOneBesoinAction(Request $request)
@@ -78,7 +78,7 @@ class BesoinController extends FOSRestController
     /**
      * Crée une besoin
      *
-     * @Rest\View(serializedGroups={"ApiBesoinGroup"})
+     * @Rest\View(serializerGroups={"ApiBesoinGroup"})
      * @Rest\Post("/besoins")
      */
     public function postBesoinAction(Request $request)
@@ -120,7 +120,7 @@ class BesoinController extends FOSRestController
 
     /**
      * Modifie une besoin identifié par le paramètre 'id'
-     * @Rest\View(serializedGroups={"ApiBesoinGroup"})
+     * @Rest\View(serializerGroups={"ApiBesoinGroup"})
      * @Rest\Put("/besoins/{id}", requirements={"id" = "\d+"})
      */
     public function putBesoinAction(Request $request)
@@ -131,7 +131,7 @@ class BesoinController extends FOSRestController
     /**
      * Modifie une besoin identifié par le paramètre 'id'
      *
-     * @Rest\View(serializedGroups={"ApiBesoinGroup"})
+     * @Rest\View(serializerGroups={"ApiBesoinGroup"})
      * @Rest\Patch("/besoins/{id}", requirements={"id" = "\d+"})
      */
     public function patchBesoinAction(Request $request)
