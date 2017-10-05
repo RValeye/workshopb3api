@@ -138,6 +138,8 @@ class Besoin
      * @var float
      *
      * @ORM\Column(name="besoin_duration", type="decimal", precision=8, scale=2, nullable=false)
+     *
+     * @Serializer\Groups({"ApiBesoinGroup"})
      */
     private $duration;
 
@@ -145,8 +147,22 @@ class Besoin
      * @var float
      *
      * @ORM\Column(name="besoin_frequency", type="decimal", precision=8, scale=2, nullable=false)
+     *
+     * @Serializer\Groups({"ApiBesoinGroup"})
      */
     private $frequency;
+
+    /**
+     * @var BesoinStatus
+     *
+     * @ORM\ManyToOne(targetEntity="BesoinStatus")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="besoin_status_id", referencedColumnName="besoin_status_id")
+     * })
+     *
+     * @Serializer\Groups({"ApiBesoinGroup"})
+     */
+    private $besoinStatus;
 
     /**
      * Get id
@@ -467,6 +483,24 @@ class Besoin
     public function setFrequency($frequency)
     {
         $this->frequency = $frequency;
+        return $this;
+    }
+
+    /**
+     * @return BesoinStatus
+     */
+    public function getBesoinStatus()
+    {
+        return $this->besoinStatus;
+    }
+
+    /**
+     * @param BesoinStatus $besoinStatus
+     * @return Besoin
+     */
+    public function setBesoinStatus($besoinStatus)
+    {
+        $this->besoinStatus = $besoinStatus;
         return $this;
     }
 }

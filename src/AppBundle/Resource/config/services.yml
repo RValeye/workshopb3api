@@ -17,3 +17,9 @@ services:
     api_authenticator.api_key:
         class: AppBundle\Security\ApiKeyAuthenticator
         arguments: ['@event_dispatcher', '@api_extractor.auth_token']
+
+    api_subscriber.log_subscriber:
+        class: AppBundle\Listener\LogSubscriber
+        arguments: ['@request_stack', '@service_container', '@security.token_storage']
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
