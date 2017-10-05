@@ -35,10 +35,11 @@ class BaseRepository extends EntityRepository
         return $q->getQuery()->getSingleResult();
     }
 
-    public function getAll()
+    public function getAll($filters)
     {
         $q = $this->createQueryBuilder($this->_alias)
             ->select($this->_alias);
+        $this->addFilters($q, $filters);
         return $q->getQuery()->getResult(Query::HYDRATE_OBJECT);
     }
 

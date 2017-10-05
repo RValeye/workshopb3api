@@ -83,7 +83,7 @@ class BesoinController extends FOSRestController
     {
         $em = $this->getDoctrine()->getManager();
 
-        $users = $em->getRepository('AppBundle:Besoin')->findAll();
+        $users = $em->getRepository('AppBundle:Besoin')->getAll($request->query->all());
 
         return $users;
     }

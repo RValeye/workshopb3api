@@ -80,7 +80,7 @@ class ListeConsultantController extends FOSRestController
      * @Rest\Get("/listeconsultants")
      * @Rest\View(serializerGroups={"ApiListeConsultantGroup"})
      */
-    public function getAllBesoinAction(Request $request)
+    public function getAllListeConsultantAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
