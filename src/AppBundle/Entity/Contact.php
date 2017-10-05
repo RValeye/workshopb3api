@@ -20,7 +20,7 @@ class Contact
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      *
-     * @Serializer\Groups({"ApiContactGroup"})
+     * @Serializer\Groups({"ApiContactGroup", "ApiBesoinGroup"})
      */
     private $id;
 
@@ -29,7 +29,7 @@ class Contact
      *
      * @ORM\Column(name="contact_name", type="string", length=255, nullable=false)
      *
-     * @Serializer\Groups({"ApiContactGroup"})
+     * @Serializer\Groups({"ApiContactGroup", "ApiBesoinGroup"})
      */
     private $name;
 
@@ -41,7 +41,7 @@ class Contact
      *   @ORM\JoinColumn(name="company_company_id", referencedColumnName="company_id")
      * })
      *
-     * @Serializer\Groups({"ApiContactGroup"})
+     * @Serializer\Groups({"ApiContactGroup", "ApiBesoinGroup"})
      */
     private $company;
 

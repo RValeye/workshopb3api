@@ -101,8 +101,10 @@ class Besoin
      *
      * @ORM\ManyToOne(targetEntity="Contact")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="client_client_id", referencedColumnName="contact_id")
+     *   @ORM\JoinColumn(name="client_client_id", referencedColumnName="contact_id", nullable=true)
      * })
+     *
+     * @Serializer\Groups({"ApiBesoinGroup"})
      */
     private $contact;
 

@@ -20,7 +20,7 @@ class Company
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      *
-     * @Serializer\Groups({"ApiCompanyGroup", "ApiContactGroup"})
+     * @Serializer\Groups({"ApiCompanyGroup", "ApiContactGroup", "ApiBesoinGroup"})
      */
     private $id;
 
@@ -29,7 +29,7 @@ class Company
      *
      * @ORM\Column(name="company_label", type="string", length=255, nullable=false)
      *
-     * @Serializer\Groups({"ApiCompanyGroup", "ApiContactGroup"})
+     * @Serializer\Groups({"ApiCompanyGroup", "ApiContactGroup", "ApiBesoinGroup"})
      */
     private $label;
 
