@@ -195,8 +195,10 @@ class BesoinController extends FOSRestController
             return $this->view(['code' => Response::HTTP_NOT_FOUND, 'message' => 'Resource not found'], Response::HTTP_NOT_FOUND);
         }
 
-        $em->remove($besoin);
+        $besoin->setActive(false);
+        $em->persist($besoin);
+        //$em->remove($besoin);
         $em->flush();
-        return $this->view(null, Response::HTTP_NO_CONTENT);
+        return $this->view($besoin, Response::HTTP_OK);
     }
 }
